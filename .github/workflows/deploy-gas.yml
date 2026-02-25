@@ -1,0 +1,49 @@
+name: Deploy GAS
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'gas/**'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        working-directory: ./gas
+        run: npm install
+
+      - name: Build TypeScript
+        working-directory: ./gas
+        run: npm run build
+
+      - name: Install clasp
+        run: npm install -g @google/clasp
+
+      - name: Setup clasp configuration
+        working-directory: ./gas
+        run: |
+          echo '{
+            "scriptId": "${{ secrets.GAS_PROJECT_ID }}",
+            "rootDir": "dist"
+          }' > .clasp.json
+
+      - name: Setup clasp authentication
+        run: |
+          mkdir -p ~/.config/clasp
+          echo '${{ secrets.GAS_CLASP_TOKEN }}' > ~/.config/clasp/settings.json
+
+      - name: Deploy to GAS
+        working-directory: ./gas
+        run: clasp push --force
+
