@@ -31,11 +31,12 @@ jobs:
       - name: Create .clasp.json
         working-directory: ./gas
         run: |
-          echo "{\"scriptId\":\"$SCRIPT_ID\",\"rootDir\":\"./src\"}" > ./gas/.clasp.json
+          echo "{\"scriptId\":\"$SCRIPT_ID\",\"rootDir\":\"./src\"}" > ./.clasp.json
         env:
           SCRIPT_ID: ${{ secrets.GAS_PROJECT_ID }}
 
       - name: Create .clasprc.json
+        working-directory: ./gas
         run: echo "$CLASPRC" > ~/.clasprc.json
         env:
           CLASPRC: ${{ secrets.CLASPRC }}
