@@ -41,19 +41,11 @@ jobs:
 
       - name: Setup clasp authentication
         run: |
-          echo '${{ secrets.GAS_CLASP_TOKEN }}' > ~/.clasprc.json
-          chmod 600 ~/.clasprc.json
-
-      - name: Debug - Check clasprc.json
-        run: |
-          echo "=== File exists check ==="
-          ls -la ~/.clasprc.json
-          echo ""
-          echo "=== File content ==="
-          cat ~/.clasprc.json
-          echo ""
-          echo "=== File size ==="
-          wc -c ~/.clasprc.json
+          mkdir -p ~/.config/clasp
+          cat > ~/.config/clasp/settings.json << 'EOF'
+          ${{ secrets.GAS_CLASP_TOKEN }}
+          EOF
+          chmod 600 ~/.config/clasp/settings.json
 
       - name: Deploy to GAS
         working-directory: ./gas
