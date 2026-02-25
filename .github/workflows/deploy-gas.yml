@@ -44,7 +44,18 @@ jobs:
           echo '${{ secrets.GAS_CLASP_TOKEN }}' > ~/.clasprc.json
           chmod 600 ~/.clasprc.json
 
+      - name: Debug - Check clasprc.json
+        run: |
+          echo "=== File exists check ==="
+          ls -la ~/.clasprc.json
+          echo ""
+          echo "=== File content ==="
+          cat ~/.clasprc.json
+          echo ""
+          echo "=== File size ==="
+          wc -c ~/.clasprc.json
+
       - name: Deploy to GAS
         working-directory: ./gas
-        run: clasp push --force
+        run: clasp push --force -v
 
