@@ -41,8 +41,8 @@ jobs:
 
       - name: Setup clasp authentication
         run: |
-          mkdir -p ~/.config/clasp
-          echo '${{ secrets.GAS_CLASP_TOKEN }}' > ~/.config/clasp/settings.json
+          echo '${{ secrets.GAS_CLASP_TOKEN }}' > ~/.clasprc.json
+          chmod 600 ~/.clasprc.json
 
       - name: Deploy to GAS
         working-directory: ./gas
