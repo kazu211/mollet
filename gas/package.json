@@ -1,0 +1,19 @@
+{
+  "name": "mollet-gas",
+  "version": "1.0.0",
+  "description": "Mollet - Google Apps Script Backend",
+  "main": "dist/main.js",
+  "scripts": {
+    "build": "esbuild src/main.ts --bundle --outfile=dist/main.js --format=iife --global-name=MolletGAS",
+    "typecheck": "tsc --noEmit",
+    "dev": "npm run build -- --watch"
+  },
+  "keywords": ["gas", "google-apps-script"],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/google-apps-script": "2.0.8",
+    "esbuild": "0.27.3",
+    "typescript": "5.9.3"
+  }
+}

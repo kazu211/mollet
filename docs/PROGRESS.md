@@ -11,70 +11,70 @@
 ### 1.1 Frontend セットアップ
 
 #### 1.1.1 プロジェクト初期化
-- [ ] Vite + Vue 3 プロジェクト作成
-- [ ] TypeScript 設定
-- [ ] package.json 依存関係インストール
+- [x] Vite + Vue 3 プロジェクト作成
+- [x] TypeScript 設定
+- [x] package.json 依存関係インストール
   - vue, vue-router, pinia, vuetify, axios, day.js, vee-validate, chart.js, vue-chartjs
 
 #### 1.1.2 基本フォルダ構成
-- [ ] `src/components/` フォルダ作成
-- [ ] `src/pages/` フォルダ作成
-- [ ] `src/stores/` フォルダ作成（Pinia）
-- [ ] `src/api/` フォルダ作成
-- [ ] `src/types/` フォルダ作成
-- [ ] `src/utils/` フォルダ作成
+- [x] `src/components/` フォルダ作成
+- [x] `src/pages/` フォルダ作成
+- [x] `src/stores/` フォルダ作成（Pinia）
+- [x] `src/api/` フォルダ作成
+- [x] `src/types/` フォルダ作成
+- [x] `src/utils/` フォルダ作成
 
 #### 1.1.3 Vue Router 設定
-- [ ] routes/index.ts 作成
-- [ ] ログインページへのルート定義
-- [ ] ダッシュボードページへのルート定義
-- [ ] 認証ガード実装（ログインチェック）
+- [x] routes/index.ts 作成
+- [x] ログインページへのルート定義
+- [x] ダッシュボードページへのルート定義
+- [x] 認証ガード実装（ログインチェック）
 
 #### 1.1.4 Pinia 状態管理
-- [ ] stores/auth.ts 作成（認証状態）
+- [x] stores/auth.ts 作成（認証状態）
   - パスワード入力フォーム状態
   - ログイン状態管理
   - セッション（ローカルストレージ）
 
 #### 1.1.5 API 通信層
-- [ ] api/client.ts 作成（Axios インスタンス）
+- [x] api/client.ts 作成（Axios インスタンス）
   - GAS_URL 環境変数から取得
   - リクエストインターセプタ（パスワード追加）
-- [ ] api/auth.ts 作成（認証 API）
+- [x] api/auth.ts 作成（認証 API）
   - login(password: string) 関数
 
 #### 1.1.6 Vuetify セットアップ
-- [ ] Vuetify プラグイン設定
-- [ ] グローバルテーマ設定
-- [ ] レスポンシブ対応設定
+- [x] Vuetify プラグイン設定
+- [x] グローバルテーマ設定
+- [x] レスポンシブ対応設定
 
 #### 1.1.7 ログインページコンポーネント
-- [ ] pages/Login.vue 作成
+- [x] pages/Login.vue 作成
   - パスワード入力フォーム
   - ログインボタン
   - エラーメッセージ表示
   - フォーム検証（Vee-validate）
 
 #### 1.1.8 ダッシュボードページコンポーネント（簡易版）
-- [ ] pages/Dashboard.vue 作成
+- [x] pages/Dashboard.vue 作成
   - ページのヒナ形のみ
   - 「本月の支出」「本月の収入」の表示スペース
   - ログアウトボタン
-- [ ] components/LayoutHeader.vue 作成
+- [x] components/LayoutHeader.vue 作成
   - アプリタイトル
   - ログアウトボタン
 
 #### 1.1.9 環境変数設定
-- [ ] .env.example 作成（テンプレート）
-- [ ] .env.local 作成（ローカル開発用）
+- [x] .env.example 作成（テンプレート）
+- [x] .env.local 作成（ローカル開発用）
   - VITE_GAS_URL の設定
 
 #### 1.1.10 ローカル開発確認
-- [ ] `npm run dev` でサーバー起動確認
-- [ ] http://localhost:5173 でアクセス確認
-- [ ] ログインページ表示確認
+- [x] `npm run dev` でサーバー起動確認
+- [x] http://localhost:5173 でアクセス確認
+- [x] ログインページ表示確認
 
-**Subtask完了条件**: Frontend は GAS 接続前の状態で起動確認できること
+**Subtask完了条件**: Frontend は GAS 接続前の状態で起動確認できること ✅
 
 ---
 
@@ -83,7 +83,7 @@
 #### 1.2.1 Google Apps Script プロジェクト作成
 - [ ] GAS で新規プロジェクト作成（Mollet）
 - [ ] Script ID をメモ
-- [ ] appsscript.json に timeZone: "Asia/Tokyo" を設定
+- [x] appsscript.json に timeZone: "Asia/Tokyo" を設定
 
 #### 1.2.2 clasp セットアップ
 - [ ] clasp login で認証
@@ -91,43 +91,43 @@
 - [ ] .clasp.json 作成確認
 
 #### 1.2.3 TypeScript セットアップ
-- [ ] gas/tsconfig.json 作成
-- [ ] gas/package.json に必要な依存関係を追加
-- [ ] npm install 実行
+- [x] gas/tsconfig.json 作成
+- [x] gas/package.json に必要な依存関係を追加
+- [x] npm install 実行
 
 #### 1.2.4 プロジェクト構成
-- [ ] gas/src/ フォルダ作成
-- [ ] gas/src/main.ts 作成
-- [ ] gas/src/handlers/ フォルダ作成
-- [ ] gas/src/services/ フォルダ作成
-- [ ] gas/src/types/ フォルダ作成
-- [ ] gas/src/utils/ フォルダ作成
+- [x] gas/src/ フォルダ作成
+- [x] gas/src/main.ts 作成
+- [x] gas/src/handlers/ フォルダ作成
+- [x] gas/src/services/ フォルダ作成
+- [x] gas/src/types/ フォルダ作成
+- [x] gas/src/utils/ フォルダ作成
 
 #### 1.2.5 ビルド設定
-- [ ] gas/package.json に build スクリプト設定
+- [x] gas/package.json に build スクリプト設定
   - TypeScript → JavaScript コンパイル
   - 出力先: gas/dist/
 
 #### 1.2.6 環境変数管理
-- [ ] gas/.env.example 作成
+- [x] gas/.env.example 作成
   - SPREADSHEET_ID（ダミー値）
   - GAS_PASSWORD（ダミー値）
 
 #### 1.2.7 基本エンドポイント実装
-- [ ] main.ts にエントリーポイント実装
+- [x] main.ts にエントリーポイント実装
   - doPost(e) 関数実装
   - method フィールド解析
   - ルーティング処理
 
 #### 1.2.8 認証エンドポイント
-- [ ] handlers/auth.ts 作成
+- [x] handlers/auth.ts 作成
   - loginHandler(password: string) 実装
   - パスワード検証ロジック（環境変数と比較）
   - 成功時: { success: true }
   - 失敗時: { success: false, message: "認証に失敗しました" }
 
 #### 1.2.9 ダミーエンドポイント
-- [ ] handlers/dashboard.ts 作成
+- [x] handlers/dashboard.ts 作成
   - getSummary(month: string) 実装
   - ダミーレスポンス返却:
     ```json
@@ -139,12 +139,12 @@
     ```
 
 #### 1.2.10 エラーハンドリング
-- [ ] utils/error.ts 作成
+- [x] utils/response.ts 作成
   - エラーレスポンス共通フォーマット
 
 #### 1.2.11 ローカルビルド・テスト
-- [ ] `npm run build` でコンパイル成功確認
-- [ ] gas/dist/ にコンパイル済みファイル確認
+- [x] `npm run build` でコンパイル成功確認
+- [x] gas/dist/ にコンパイル済みファイル確認
 
 #### 1.2.12 GAS Web Apps デプロイ
 - [ ] GAS エディタで新規デプロイ作成
@@ -154,7 +154,7 @@
 - [ ] デプロイURL取得してメモ
 - [ ] `clasp push` で初回デプロイ実行
 
-**Subtask完了条件**: GAS が Web Apps として公開され、デプロイURL が取得できること
+**Subtask完了条件**: GAS が Web Apps として公開され、デプロイURL が取得できること ⏳ (手動デプロイ待ち)
 
 ---
 
@@ -171,7 +171,7 @@
 - [ ] ブラウザの開発者ツール（Network タブ）で GAS への POST リクエスト確認
 - [ ] レスポンスが JSON フォーマットで返却確認
 
-**Subtask完了条件**: ログイン・ログアウト・ダッシュボード遷移が一通り動作すること
+**Subtask完了条件**: ログイン・ログアウト・ダッシュボード遷移が一通り動作すること ⏳ (GASデプロイ後に確認)
 
 ---
 
