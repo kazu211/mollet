@@ -29,6 +29,7 @@ jobs:
         run: npm install -g @google/clasp@2.4.2
 
       - name: Create .clasp.json
+        working-directory: ./gas
         run: |
           echo "{\"scriptId\":\"$SCRIPT_ID\",\"rootDir\":\"./src\"}" > ./gas/.clasp.json
         env:
