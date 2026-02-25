@@ -31,16 +31,34 @@ jobs:
       - name: Create .clasp.json
         working-directory: ./gas
         run: |
-          echo "{\"scriptId\":\"$SCRIPT_ID\",\"rootDir\":\"./src\"}" > ./.clasp.json
+          echo "{\"scriptId\":\"$GAS_PROJECT_ID\",\"rootDir\":\"./\"}" > ./.clasp.json
         env:
-          SCRIPT_ID: ${{ secrets.GAS_PROJECT_ID }}
+          GAS_PROJECT_ID: ${{ secrets.GAS_PROJECT_ID }}
 
       - name: Create .clasprc.json
-        working-directory: ./gas
-        run: echo "$CLASPRC" > ~/.clasprc.json
-        env:
-          CLASPRC: ${{ secrets.CLASPRC }}
+        run: |
+          echo '${{ secrets.GAS_CLASP_TOKEN }}' > ~/.clasprc.json
+          chmod 600 ~/.clasprc.json
 
-      - name: Deploy to GAS
+      - name: Publish
         working-directory: ./gas
-        run: clasp push --force
+        run: |
+          clasp push --force
+
+      - name: Get running version
+        working-directory: ./gas
+        run: |
+          echo RUNNING_VERSION="$( clasp deployments | tail -n 1 | awk -F ' ' '{print $3}' )" >> $GITHUB_ENV
+
+      - name: Deploy (Only first time)
+        working-directory: ./gas
+        if: env.RUNNING_VERSION == '@HEAD'
+        run: |
+          clasp deploy -d ${GITHUB_SHA:0:7}
+
+      - name: Deploy
+        working-directory: ./gas
+        if: env.RUNNING_VERSION != '@HEAD'
+        run: |
+          DEPLOY_ID=$( clasp deployments | tail -n 1 | awk -F ' ' '{print $2}' )
+          clasp deploy -d ${GITHUB_SHA:0:7} -i ${DEPLOY_ID}
