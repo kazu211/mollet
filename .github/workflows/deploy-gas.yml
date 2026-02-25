@@ -6,6 +6,7 @@ on:
       - main
     paths:
       - 'gas/**'
+  workflow_dispatch:
 
 jobs:
   deploy:
