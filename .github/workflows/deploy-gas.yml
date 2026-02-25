@@ -57,5 +57,5 @@ jobs:
 
       - name: Deploy to GAS
         working-directory: ./gas
-        run: clasp push --force -v
+        run: clasp push --force
 
